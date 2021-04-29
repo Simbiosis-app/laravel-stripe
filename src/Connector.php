@@ -100,6 +100,28 @@ class Connector
     }
 
     /**
+     * @return Repositories\InvoiceRepository
+     */
+    public function invoices(): Repositories\InvoiceRepository
+    {
+        return new Repositories\InvoiceRepository(
+            app(Client::class),
+            $this->accountId()
+        );
+    }
+
+    /**
+     * @return Repositories\InvoiceItemRepository
+     */
+    public function invoiceItems(): Repositories\InvoiceItemRepository
+    {
+        return new Repositories\InvoiceItemRepository(
+            app(Client::class),
+            $this->accountId()
+        );
+    }
+
+    /**
      * Create a payment intents client for the provided account.
      *
      * @return Repositories\PaymentIntentRepository
