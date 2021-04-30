@@ -30,7 +30,7 @@ class InvoiceRepository extends AbstractRepository
     use Concerns\Update;
 
     /**
-     * Create a invoice.
+     * Create an invoice.
      *
      * Both currency, amount and customer are required parameters.
      *

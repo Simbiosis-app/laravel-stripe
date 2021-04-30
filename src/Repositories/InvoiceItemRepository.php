@@ -42,9 +42,8 @@ class InvoiceItemRepository extends AbstractRepository
      */
     public function create(string $customer, iterable $params = []): InvoiceItem
     {
-        list('currency' => $currency, 'amount' => $amount) = $params;
-        if($currency && $amount) {
-            Assert::chargeAmount($currency, $amount);
+        if(isset($params['currency']) && isset($params['amount'])) {
+            Assert::chargeAmount($params['currency'], $params['amount']);
         }
 
         $this->params($params)->params(
