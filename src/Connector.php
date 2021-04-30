@@ -89,6 +89,17 @@ class Connector
     }
 
     /**
+     * @return Repositories\CustomerRepository
+     */
+    public function customers(): Repositories\CustomerRepository
+    {
+        return new Repositories\CustomerRepository(
+            app(Client::class),
+            $this->accountId()
+        );
+    }
+
+    /**
      * @return Repositories\EventRepository
      */
     public function events(): Repositories\EventRepository
