@@ -32,10 +32,9 @@ class InvoiceRepository extends AbstractRepository
     /**
      * Create an invoice.
      *
-     * Both currency, amount and customer are required parameters.
+     * Only the customer is a required parameter.
      *
-     * @param string $currency
-     * @param int $amount
+     * @param int $customer
      * @param iterable|array $params
      *      additional optional parameters.
      * @return Invoice
@@ -48,6 +47,28 @@ class InvoiceRepository extends AbstractRepository
 
         return $this->send(
             'create',
+            $this->params ?: null,
+            $this->options ?: null
+        );
+    }
+
+    /**
+     * Send an invoice to the customer.
+     *
+     * Both currency, amount and customer are required parameters.
+     *
+     * @param string $currency
+     * @param int $amount
+     * @param iterable|array $params
+     *      additional optional parameters.
+     * @return Invoice
+     */
+    public function send(iterable $params = []): Invoice
+    {
+        $this->params($params);
+
+        return $this->send(
+            'sendInvoice',
             $this->params ?: null,
             $this->options ?: null
         );
