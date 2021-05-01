@@ -43,10 +43,6 @@ class AuthorizeConnect extends FormRequest
                 'required',
                 'string',
             ],
-            'scope' => [
-                'required_with:code',
-                Rule::in(AuthorizeUrl::scopes()),
-            ],
             'error' => [
                 'required_without:code',
                 'string',
