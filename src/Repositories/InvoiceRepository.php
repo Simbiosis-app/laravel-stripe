@@ -63,7 +63,7 @@ class InvoiceRepository extends AbstractRepository
      *      additional optional parameters.
      * @return Invoice
      */
-    public function send(iterable $params = []): Invoice
+    public function sendInvoice(iterable $params = []): Invoice
     {
         $this->params($params);
 
