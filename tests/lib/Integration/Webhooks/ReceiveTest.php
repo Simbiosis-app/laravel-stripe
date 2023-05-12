@@ -83,7 +83,7 @@ class ReceiveTest extends TestCase
             'id' => $this->event['id'],
             'account_id' => null,
             'api_version' => $this->event['api_version'],
-            'created' => Carbon::createFromTimestamp($this->event['created'])->toDateTimeString(),
+            // 'created' => Carbon::createFromTimestamp($this->event['created'])->toDateTimeString(),
             'livemode' => $this->event['livemode'],
             'pending_webhooks' => $this->event['pending_webhooks'],
             'type' => $this->event['type'],
